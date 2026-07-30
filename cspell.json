@@ -1,0 +1,58 @@
+{
+  "version": "0.2",
+  "allowCompoundWords": true,
+  "enabledLanguageIds": [
+    "asciidoc",
+    "html",
+    "git-commit",
+    "javascript",
+    "json",
+    "jsonc",
+    "markdown",
+    "plaintext",
+    "shellscript",
+    "text",
+    "typescript",
+    "toml",
+    "yaml",
+    "yml"
+  ],
+  "dictionaries": [
+    "corp-terms",
+    "fonts"
+  ],
+  "ignorePaths": [
+    "**/.bin/",
+    "**/.build/",
+    "**/.cache/",
+    "**/.compiled/",
+    "**/.dist/",
+    "**/.git/",
+    "**/.hooks/",
+    "**/.idea/",
+    "**/.next/",
+    "**/.npm/",
+    "**/.out/",
+    "**/.svn/",
+    "**/.vs/",
+    "**/.vscode/",
+    "**/bin/",
+    "**/build/",
+    "**/cache/",
+    "**/compiled/",
+    "**/dist/",
+    "**/node_modules/",
+    "messages/!(en).json"
+  ],
+  "ignoreRegExpList": [
+    "/^.*@import\\s*\\(.*\\).*$/gmi",
+    "/\\b[0-9A-Z\\/\\-_]+\\b/gm"
+  ],
+  "language": "en",
+  "words": [
+    "Vercel"
+  ],
+  "ignoreWords": [
+    "vanillajs"
+  ]
+}

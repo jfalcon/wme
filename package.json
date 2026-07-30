@@ -1,0 +1,38 @@
+{
+  "name": "wme",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "next build",
+    "dev": "next dev",
+    "lint": "oxlint . --type-aware --type-check",
+    "start": "next start"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "js-cookie": "^3.0.8",
+    "next": "16.2.12",
+    "pluralize": "^8.0.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  },
+  "devDependencies": {
+    "@types/js-cookie": "^3.0.6",
+    "@types/node": "^26.1.2",
+    "@types/pluralize": "^0.0.33",
+    "@types/react": "^19.0.57",
+    "@types/react-dom": "^19.0.19",
+    "babel-plugin-react-compiler": "^1.0.0",
+    "oxlint": "^1.76.0",
+    "oxlint-tsgolint": "^7.0.2001",
+    "sass": "^1.102.0",
+    "typescript": "^7.0.2"
+  },
+  "overrides": {
+    "postcss": "^8.5.18",
+    "sharp": "^0.35.3"
+  },
+  "allowScripts": {
+    "@parcel/watcher@2.6.0": true
+  }
+}

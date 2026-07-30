@@ -1,0 +1,90 @@
+# ai
+/.agents/
+/.claude/settings.local.json
+/.cline/
+/.codex/
+/.cody/
+/.continue/
+/.cursor/
+/.gemini/
+/.roo/
+/.windsurf/
+.aider*
+.codex
+
+# cache directories
+.cache/
+.git/
+.svn/
+cache/
+
+# debug
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# dependencies
+node_modules/
+.pnp/
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# environment
+.env
+.env.*
+!.env.example
+!.env.seed.example
+
+# misc
+.DS_Store
+*.7z
+*.backup
+*.bak
+*.br
+*.gz
+*.pem
+*.sql
+*.swn
+*.swo
+*.swp
+*.tar
+*.tar.*
+*.tgz
+*.tmp
+*.xls
+*.xls
+*.zip
+*.zst
+
+# mkcert directories
+cert/
+certificates/
+
+# output directories
+/.bin/
+/.build/
+/.compiled/
+/.dist/
+/.next/
+/.out/
+/bin/
+/build/
+/compiled/
+/dist/
+/out/
+
+# vercel
+.vercel
+
+# testing
+/coverage/
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts

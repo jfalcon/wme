@@ -1,0 +1,15 @@
+{
+  "recommendations": [
+    "anthropic.claude-code",
+    "bierner.github-markdown-preview",
+    "davidanson.vscode-markdownlint",
+    "donjayamanne.githistory",
+    "eamodio.gitlens",
+    "editorconfig.editorconfig",
+    "github.vscode-github-actions",
+    "openai.chatgpt",
+    "streetsidesoftware.code-spell-checker",
+    "stylelint.vscode-stylelint"
+  ],
+  "unwantedRecommendations": []
+}

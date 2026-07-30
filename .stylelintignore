@@ -1,0 +1,41 @@
+# ai
+/.agents/
+/.claude/settings.local.json
+/.cline/
+/.codex/
+/.cody/
+/.continue/
+/.cursor/
+/.gemini/
+/.roo/
+/.windsurf/
+.aider*
+.codex
+
+# cache directories
+.cache/
+.git/
+.svn/
+cache/
+
+# dependency directories
+node_modules/
+
+# output directories
+/.bin/
+/.build/
+/.compiled/
+/.dist/
+/.next/
+/.out/
+/bin/
+/build/
+/compiled/
+/dist/
+/out/
+
+# vercel
+.vercel/
+
+# testing
+/coverage/
