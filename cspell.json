@@ -50,9 +50,23 @@
   ],
   "language": "en",
   "words": [
+    "significand",
+    "SonarQube",
     "Vercel"
   ],
   "ignoreWords": [
+    "Croll",
+    "Oxlint",
+    "Scully",
+    "Wakeup",
+    "chewie",
+    "funcs",
+    "lando",
+    "leia",
+    "libnss",
+    "mkcert",
+    "tsgo",
+    "tsgolint",
     "vanillajs"
   ]
 }

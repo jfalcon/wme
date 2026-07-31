@@ -2,65 +2,96 @@
 
 Will add something cool here later.
 
-## Features
+## Core Features
 
-TypeScript 7
+Below are notable features of the project intended to enhance not only the developer experience
+but the end user experience as well.
 
-Oxlint is the performance beast – written in Rust, 50–100x faster, ships with 800+ built-in rules, and works zero-config out of the box.
-Multi-file analysis supports multi-file analysis as a first-class capability.
-When enabled, Oxlint builds a project-wide module graph and shares parsing and resolution across rules. This improves checks that depend on cross-file imports and helps avoid the performance cliff often seen with rules like import/no-cycle in ESLint.
-Human and AI-friendly diagnostics
-In addition to clear messages, diagnostics include structured information such as precise spans, contextual data, and links to relevant documentation. This helps AI to understand issues and apply fixes reliably.
-markdown lint
+* Automatic noindex, nofollow for ERP/LOB applications.
+* Enforces linear commit history (can be overridden via --no-verify).
+* ES2022 (~5 years back) for smaller bundle sizes with less polyfills.
+* Functional SOLID Design
+* Hooks run on pre-push and not pre-commit to allow for frequent commits.
+* Markdown Linting
+* Oxlint
+* PostCSS/PurgeCSS
+* React 19 Compiler
+* Static Analysis
+* TypeScript 7
 
+Impeccable skills?
 testing (for speed)
+todo: add unit tests
 native node testing instead of jest...
 
-ai
-use gstack for claude and codex to check it
+## Claude Skills
 
-React 19 Compiler
-babel-plugin-react-compiler
+* Cost-reduction — right-sizes cloud resources and cuts spend (e.g. caching, bundle size,
+  instance sizing).
+* Scalability — designs for scale: caching, queues, DB scaling, concurrent API patterns.
+* Security — flags OWASP Top 10 issues (SQLi, XSS, CSRF) and enforces secure auth/secrets patterns.
 
-## SSL Certificate
+## TypeScript 7
 
-This application uses HTTPS to avoid compatiblity issues with browser features that do not run
-over plain text. As such, Next.js will automatically install a local SSL certificate. However, we
-still need to trust the certificate to improve the developer expiererernce.
+This version of TypeScript was rewritten in Go, which is up to 10x faster for type checking when
+compared to the JS-based compiler `tsc`. Next.js still uses the Rust-based Turbopack as the bundler
+and Rust-based SWC as transpiler. As such, TypeScript 7 here removes the last slow bottleneck and is
+responsible for type checking during builds.
 
-### Trusting Local Certificates
+*Note: TypeScript 7 should only be used in a greenfield project for now as it's not yet ready for
+production with this stack. The new APIs and tooling are not expected to stabilize until TypeScript
+7.1, which will release around October 2026. Thus it's not yet suitable for production use.*
 
-Next.js ships with a bundled version of `mkcert`, but we still want to install the distro's version
-of it and `certutil` as they will mkcert to auto-register the CA with Chrome and Firefox:
+## Oxlint
 
-```bash
-sudo apt install mkcert libnss3-tools
-mkcert -install
+Unfortunately, most of the eslint tooling is lagging behind, especially as it relates to
+TypeScript 7 support. Oxlint is an eslint-compatible linter written in Rust.
+
+Its feature set includes:
+
+* A run speed that is 50–100x faster than eslint.
+* Ships with 800+ built-in rules, and works zero-config out of the box.
+* Multi-file analysis supports multi-file analysis as a first-class capability.
+* Outputs human and AI-friendly diagnostics.
+
+## React 19 Compiler
+
+The React 19 compiler eliminates the need to manually sprinkle `useMemo`, `useCallback`, and
+`React.memo` across your codebase to prevent unnecessary re-renders. In fact, using them for new
+code is no longer recommended.
+
+You should let the compiler optimize it automatically and defer manual memoization to rare edge
+cases (like third-party libraries requiring strict manual reference stability).
+
+```typescript
+function SearchList({ items, query, onSelect }: SearchListProps) {
+  // OLD WAY: manual memoization and dependency arrays
+  // const filtered = useMemo(() => items.filter((i) => i.includes(query)), [items, query]);
+  // const handleSelect = useCallback((item: string) => onSelect(item), [onSelect]);
+
+  // NEW WAY: standard TypeScript
+  const filtered = items.filter((i) => i.includes(query));
+  const handleSelect = (item: string) => onSelect(item);
+
+  return <List items={filtered} onSelect={handleSelect} />;
+}
 ```
 
-Restart your browser if it was already open.
+## Static Analysis
 
-#### Troubleshooting
+This project uses [fallow](https://fallow.tools/), which is a TypeScript static analyzer that
+compliments linting and catches problems that LLMs are not well suited to detect. It is used as
+part of the pipeline and AI can also use it to aid with refactoring. Think of it like a tiny
+version of SonarQube that can be run locally.
 
-Recent versions of Firefox (installed from Mozilla's apt repo) store their profile under
-`~/.config/mozilla/firefox/` instead of `~/.mozilla/firefox/`, which `mkcert -install` may not
-check depending on your version. If an SSL warning shows in the browser, register the CA directly
-into the correct profile database:
+## Artificial Intelligence
 
-```bash
-certutil -A -n "mkcert" -t "TCu,Cu,Tu" \
-  -i ~/.local/share/mkcert/rootCA.pem \
-  -d sql:$(find ~/.config/mozilla/firefox -name "cert9.db" -printf "%h\n" | head -1)
-```
+Project ships with Claude skills.
+
+* `/cost-reducer` - right-sizes cloud resources and cuts spend.
+* `/scalability` - designs for scale: caching, queues, DB scaling, concurrent API patterns.
+* `/security` - flags OWASP Top 10 issues and enforces secure auth/secrets patterns.
 
 ## Getting Started
 
-First, run the development server so that Next.js installs a local SSL certificate:
-
-```bash
-npm run dev
-```
-
-This project uses
-[`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to
-automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+See the [setup guide](docs/setup.md) for details.

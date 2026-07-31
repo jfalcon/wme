@@ -1,0 +1,5 @@
+if [ -f "$(git rev-parse --git-dir)/MERGE_HEAD" ]; then
+  echo "error: merge commits are not allowed - this repo requires linear history." >&2
+  echo "use 'git rebase' instead of 'git merge', or pull with 'git pull --rebase'." >&2
+  exit 1
+fi

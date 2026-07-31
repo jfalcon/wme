@@ -1,0 +1,4 @@
+# put global .d.ts files in here for packages that do not ship with types
+
+*
+!.gitignore

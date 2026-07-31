@@ -1,18 +1,22 @@
 {
   "compilerOptions": {
-    "target": "ES2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "react-jsx",
-    "incremental": true,
+    "allowJs": true,                          // allow JavaScript files to be compiled
+    "allowUnusedLabels": false,               // report errors on unused labels instead of warnings
+    "esModuleInterop": true,                  // import non-ES modules as default imports
+    "incremental": true,                      // only build modified files when compiling
+    "isolatedModules": true,                  // disallow features that require cross-file awareness
+    "jsx": "react-jsx",                       // emit files using the React 17+ JSX transform
+    "lib": ["dom", "dom.iterable", "esnext"], // explicitly set default type definitions
+    "module": "esnext",                       // module system to output (CommonJS, ESNext, etc.)
+		"moduleDetection": "force",               // treat files as modules even without import/export
+    "moduleResolution": "bundler",            // do not require extension on imported relative paths
+    "noEmit": true,                           // do not emit any output (can set 'incremental')
+    "noFallthroughCasesInSwitch": true,       // report errors for fallthroughs in switch statements
+    "resolveJsonModule": true,                // allows importing modules with a '.json' extension
+    "skipLibCheck": true,                     // only check used library code
+    "strict": true,                           // strict type checking for null, this, etc.
+    "target": "ES2022",                       // the ECMAScript version to output
+    "tsBuildInfoFile": "node_modules/.cache/tsconfig.tsbuildinfo",
     "plugins": [
       {
         "name": "next"
@@ -23,12 +27,12 @@
     }
   },
   "include": [
-    "next-env.d.ts",
+    "**/*.mts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
-    "**/*.mts"
+    ".next/types/**/*.ts",
+    "next-env.d.ts"
   ],
   "exclude": ["node_modules"]
 }

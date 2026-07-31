@@ -1,0 +1,25 @@
+tsc --noEmit || exit 1
+npm run lint || exit 1
+npm run audit || exit 1
+
+# reject pushes that would introduce merge commits (enforce linear history)
+zero=0000000000000000000000000000000000000000
+
+while read -r local_ref local_sha remote_ref remote_sha; do
+  if [ "$local_sha" = "$zero" ]; then
+    continue
+  fi
+
+  if [ "$remote_sha" = "$zero" ]; then
+    range="$local_sha"
+  else
+    range="$remote_sha..$local_sha"
+  fi
+
+  merges=$(git rev-list --merges "$range")
+  if [ -n "$merges" ]; then
+    echo "error: push rejected - merge commit(s) found, history must be linear:" >&2
+    echo "$merges" >&2
+    exit 1
+  fi
+done

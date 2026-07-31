@@ -1,6 +1,10 @@
 # ai
 /.agents/
-/.claude/settings.local.json
+/.claude/*
+!/.claude/agents/
+!/.claude/commands/
+!/.claude/skills/
+!/.claude/settings.json
 /.cline/
 /.codex/
 /.cody/
@@ -11,6 +15,9 @@
 /.windsurf/
 .aider*
 .codex
+
+# analyzers
+/.fallow/
 
 # cache directories
 .cache/

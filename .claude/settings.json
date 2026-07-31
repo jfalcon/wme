@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx tsc --noEmit *)",
+      "Bash(npm info *)"
+    ],
+    "additionalDirectories": [
+      "/tmp"
+    ]
+  }
+}

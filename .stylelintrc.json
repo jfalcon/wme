@@ -16,7 +16,7 @@
       }
     },
     {
-      "files": ["email/**/*.html"],
+      "files": ["**/*.html"],
       "extends": ["stylelint-config-recommended"],
       "customSyntax": "postcss-html",
       "rules": {
